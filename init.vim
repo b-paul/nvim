@@ -2,12 +2,9 @@
 
 lua require('init')
 
-" Colour column shows the text width of a file
-let &l:colorcolumn='+' . join(range(0,254),',+')
-
-
 " Plugins!!
 packadd! pair
+packadd! cstimer
 
 
 " Enable syntax highlighting if the terminal supports colour

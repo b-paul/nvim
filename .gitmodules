@@ -1,0 +1,3 @@
+[submodule "pack/folder_name/opt/cstimer"]
+	path = pack/folder_name/opt/cstimer
+	url = https://github.com/GuyClicking/cstimer.git

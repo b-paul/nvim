@@ -12,6 +12,11 @@ vim.bo.softtabstop = 4
 vim.bo.shiftwidth = 4
 vim.bo.expandtab = true
 vim.bo.autoindent = true
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+vim.o.autoindent = true
 vim.o.smarttab = true
 
 -- Ruler shows the line and column number at the bottom right
@@ -19,9 +24,18 @@ vim.o.ruler = true
 
 -- Make underscore separated words separate words
 vim.bo.iskeyword = vim.bo.iskeyword:gsub(",_","")
+vim.o.iskeyword = vim.o.iskeyword:gsub(",_","")
 
 -- Dont wrap long lines
 vim.wo.wrap = false
 
 -- Make CTRL-L clear echo and search
-vim.api.nvim_set_keymap('n', '<C-L>', ':noh<CR>:mode<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-L>', ':noh<CR>:mode<CR>',
+                        { noremap = true, silent = true })
+
+-- Make Shift-Delete do nothing (my keyboard is weird)
+vim.api.nvim_set_keymap('i', '<S-Del>', '', { noremap = true, silent = true })
+
+-- Colour column shows the text width of a file
+vim.wo.colorcolumn = vim.wo.colorcolumn .. '+' .. 0
+for i = 1,254 do vim.wo.colorcolumn = vim.wo.colorcolumn .. ',+' .. i end
