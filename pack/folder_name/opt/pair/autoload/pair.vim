@@ -31,21 +31,11 @@ function! pair#is_expanded_pair()
 endfunction
 
 function! pair#move_left()
-    let pos = getpos('.')
-    let pos[2] -= 1
-
-    call setpos('.', pos)
-
-    return ""
+    return "\<C-g>U\<Left>"
 endfunction
 
 function! pair#move_right()
-    let pos = getpos('.')
-    let pos[2] += 1
-
-    call setpos('.', pos)
-
-    return ""
+    return "\<C-g>U\<Right>"
 endfunction
 
 function! pair#parse_dupe_pair(pair)
@@ -53,11 +43,10 @@ function! pair#parse_dupe_pair(pair)
     let col  = col('.')
 
     if strcharpart(line, col-1, 1) == a:pair[1]
-        call pair#move_right()
-        return ""
+        return pair#move_right()
     endif
 
-    return a:pair . "\<C-R>=pair#move_left()\<CR>"
+    return a:pair . pair#move_left()
 endfunction
 
 function! pair#close_pair(c)
@@ -65,8 +54,7 @@ function! pair#close_pair(c)
     let col  = col('.')
 
     if strcharpart(line, col-1, 1) == a:c
-        call pair#move_right()
-        return ""
+        return pair#move_right()
     endif
     return a:c
 endfunction
