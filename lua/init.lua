@@ -46,3 +46,10 @@ vim.api.nvim_set_keymap('i', '<S-Del>', '', { noremap = true, silent = true })
 -- Colour column shows the text width of a file
 vim.wo.colorcolumn = vim.wo.colorcolumn .. '+' .. 0
 for i = 1,254 do vim.wo.colorcolumn = vim.wo.colorcolumn .. ',+' .. i end
+
+-- LSP
+
+-- Always have the sign column so that code doesnt move around on error
+vim.wo.signcolumn = "yes"
+
+require('lspconfig').ccls.setup{}
