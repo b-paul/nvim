@@ -25,6 +25,9 @@ vim.o.smarttab = true
 -- Ruler shows the line and column number at the bottom right
 vim.o.ruler = true
 
+-- Always show the tab bar for consistency
+vim.o.showtabline = 2
+
 -- Make underscore separated words separate words
 vim.bo.iskeyword = vim.bo.iskeyword:gsub(",_","")
 vim.o.iskeyword = vim.o.iskeyword:gsub(",_","")
