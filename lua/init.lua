@@ -1,5 +1,8 @@
 -- vimrc but lua
 
+-- Set leader to space
+vim.g.mapleader = ' '
+
 -- Line numbers
 -- See :h number_relativenumber
 vim.wo.number = true
@@ -31,6 +34,10 @@ vim.wo.wrap = false
 
 -- Make CTRL-L clear echo and search
 vim.api.nvim_set_keymap('n', '<C-L>', ':noh<CR>:mode<CR>',
+                        { noremap = true, silent = true })
+
+-- Make leader+a insert one from the end of the line because semicolon
+vim.api.nvim_set_keymap('n', '<leader>a', '$i',
                         { noremap = true, silent = true })
 
 -- Make Shift-Delete do nothing (my keyboard is weird)
