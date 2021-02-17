@@ -1,6 +1,6 @@
 [submodule "pack/folder_name/opt/cstimer"]
 	path = pack/folder_name/opt/cstimer
-	url = https://github.com/GuyClicking/cstimer.git
+	url = https://github.com/GuyClicking/cstimer.nvim.git
 [submodule "pack/folder_name/opt/nvim-lspconfig"]
 	path = pack/folder_name/opt/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig/
