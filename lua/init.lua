@@ -35,6 +35,9 @@ vim.o.iskeyword = vim.o.iskeyword:gsub(",_","")
 -- Dont wrap long lines
 vim.wo.wrap = false
 
+-- Dont highlight searches
+vim.o.hlsearch = false
+
 -- Make CTRL-L clear echo and search
 vim.api.nvim_set_keymap('n', '<C-L>', ':noh<CR>:mode<CR>',
                         { noremap = true, silent = true })
@@ -42,7 +45,10 @@ vim.api.nvim_set_keymap('n', '<C-L>', ':noh<CR>:mode<CR>',
 -- Make leader+a insert one from the end of the line because semicolon
 vim.api.nvim_set_keymap('n', '<leader>a', '$i',
                         { noremap = true, silent = true })
-
+-- Make leader+x delete char at the end of the line
+vim.api.nvim_set_keymap('n', '<leader>x', '$x',
+                        { noremap = true, silent = true })
+ 
 -- Make Shift-Delete do nothing (my keyboard is weird)
 vim.api.nvim_set_keymap('i', '<S-Del>', '', { noremap = true, silent = true })
 

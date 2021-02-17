@@ -20,9 +20,11 @@ endfunction
 function! pair#is_expanded_pair()
     let line1 = getline(line('.')-1)
     let line2 = getline(line('.')+1)
+    let col = col('.')
 
     for pair in g:pair#pair_chars
-        if matchstr(line1, pair[0] . '$') == pair[0]
+        if matchstr(line1, pair[0] . '$') == pair[0] &&
+                    \col == 1
             return matchstr(line2, '^' . pair[1]) == pair[1]
         endif
     endfor
